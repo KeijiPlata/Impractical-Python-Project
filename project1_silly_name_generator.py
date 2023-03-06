@@ -44,7 +44,7 @@ def main_loop():
     print("Welcome to the silly name Generator!")
     while True:
         print("Your name will be:")
-        pickName()
+        pick_name()
         message = "\nDo you want to try again? Press Enter else q to quit: "
         try_again = input(message)
 
@@ -52,8 +52,7 @@ def main_loop():
         if try_again.lower() == "q":
             print("Thank you for using the system!")
             break
-    
-def pickName():
+def pick_name():
     """Pick the name"""
     first = random.choice(firstName)
     last = random.choice(lastName)
