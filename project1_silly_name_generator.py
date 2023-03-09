@@ -8,13 +8,13 @@ import random
 
 # firstname inside of a tuple
 firstName = ('Baby Oil', 'Bad News', 'Big Burps', "Bill 'Beenie­Weenie'",
-        "Bob 'Stinkbug'", 'Bowel Noises', 'Boxelder', "Bud 'Lite' ",
+        "Bob 'Stinkbug'", 'Bowel Noises', 'Boxelder', "Bud 'Lite'",
         'Butterbean', 'Buttermilk', 'Buttocks', 'Chad', 'Chesterfield',
-        'Chewy', 'Chigger", "Cinnabuns', 'Cleet', 'Cornbread', 'Crab Meat',
+        'Chewy', 'Chigger Cinnabuns', 'Cleet', 'Cornbread', 'Crab Meat',
         'Crapps', 'Dark Skies', 'Dennis Clawhammer', 'Dicman', 'Elphonso',
         'Fancypants', 'Figgs', 'Foncy', 'Gootsy', 'Greasy Jim', 'Huckleberry',
         'Huggy', 'Ignatious', 'Jimbo', "Joe 'Pottin Soil'", 'Johnny',
-        'Lemongrass', 'Lil Debil', 'Longbranch', '"Lunch Money"',
+        'Lemongrass', 'Lil Debil', 'Longbranch', 'Lunch Money',
         'Mergatroid', '"Mr Peabody"', 'Oil­Can', 'Oinks', 'Old Scratch',
         'Ovaltine', 'Pennywhistle', 'Pitchfork Ben', 'Potato Bug',
         'Pushmeet','Rock Candy', 'Schlomo', 'Scratchensniff', 'Scut',
@@ -22,6 +22,19 @@ firstName = ('Baby Oil', 'Bad News', 'Big Burps', "Bill 'Beenie­Weenie'",
         'Snorki', 'Soupcan Sam', 'Spitzitout', 'Squids', 'Stinky',
         'Storyboard', 'Sweet Tea', 'TeeTee', 'Wheezy Joe',
         "Winston 'Jazz Hands'", 'Worms')
+
+# This code split the first name and get the last element and store in middle
+middleName = []
+newfirstName = []
+for character in firstName:
+    if " " in character:
+        # this code split the word in space (" ", 1) means to split when see
+        # space. The positive 1 is number of split you want 
+        # [-1] means only get the last element of that split
+        middleName.append(character.rsplit(" ", 1)[-1])
+
+        # get the first element
+        newfirstName.append(character.rsplit(" ", 1)[0])
 
 # lastname inside of a tuple
 lastName = ('Appleyard', 'Bigmeat', 'Bloominshine', 'Boogerbottom',
@@ -54,12 +67,13 @@ def main_loop():
             break
 def pick_name():
     """Pick the name"""
-    first = random.choice(firstName)
+    first = random.choice(newfirstName)
+    middle = random.choice(middleName)
     last = random.choice(lastName)
 
     # print the name
     # error message doen't work on my terminal
-    print(f"{first} {last}", file=sys.stderr)
+    print(f"{first} {middle} {last}", file=sys.stderr)
 
 if __name__ == "__main__":
     main_loop()
